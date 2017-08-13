@@ -52,7 +52,8 @@ class MNIST(data.Dataset):
             self.train_data, self.train_labels = torch.load(
                 os.path.join(self.root, self.processed_folder, self.training_file))
         else:
-            self.test_data, self.test_labels = torch.load(os.path.join(self.root, self.processed_folder, self.test_file))
+            self.test_data, self.test_labels = torch.load(
+                os.path.join(self.root, self.processed_folder, self.test_file))
 
     def __getitem__(self, index):
         """
@@ -87,7 +88,7 @@ class MNIST(data.Dataset):
 
     def _check_exists(self):
         return os.path.exists(os.path.join(self.root, self.processed_folder, self.training_file)) and \
-            os.path.exists(os.path.join(self.root, self.processed_folder, self.test_file))
+               os.path.exists(os.path.join(self.root, self.processed_folder, self.test_file))
 
     def download(self):
         """Download the MNIST data if it doesn't exist in processed_folder already."""
